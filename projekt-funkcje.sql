@@ -61,9 +61,8 @@ END
 /* f. Sprawdzanie poprawności dodawanych danych (np. funkcja sprawdzająca poprawność pesela)  */
 /* wyszukaj z przedzialu czasu, jak nie znajdzie to wyjątek */
 
-CREATE FUNCTION szukajmiesiac (miesiac IN miesiace)
-    RETURN VARCHAR2 IS
-    month months.job_title%TYPE;
+CREATE FUNCTION przedzialm (month IN months)
+    RETURN VARCHAR2 IS month months;
 BEGIN
     SELECT 'number', 'date' FROM month WHERE date > DATE(DATE_SUB(NOW(), INTERVAL 2 MONTH)) AND date < DATE(DATE_SUB(NOW(), INTERVAL 1 DAY))
     dbms_output.put_line(month);

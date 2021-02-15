@@ -52,13 +52,6 @@ END
 
 /* d. Obsługa wyjątków, również własne wyjątki */
 
-
-
-/* e. Procedury, funkcje z parametrami, możliwe parametry domyślne */
-
-
-
-/* f. Sprawdzanie poprawności dodawanych danych (np. funkcja sprawdzająca poprawność pesela)  */
 /* wyszukaj z przedzialu czasu, jak nie znajdzie to wyjątek */
 
 CREATE FUNCTION przedzialm (month IN months)
@@ -71,6 +64,23 @@ BEGIN
     WHEN NO_DATA_FOUND THEN RETURN 'Nie znaleziono';
     WHEN OTHERS THEN dbms_output.put_line('Error');
 END;
+
+/* e. Procedury, funkcje z parametrami, możliwe parametry domyślne */
+/* zmiana wielkosci liter - pierwsza duza reszta male */
+                                                                                                                     
+CREATE FUNCTION literymiesiace(str VARCHAR)
+RETURN VARCHAR IS
+BEGIN
+RETURN CONCAT(UPPER(LEFT(str, 1)), RIGHT(str, LENGTH(str)-1));
+END f4;
+                                                                                                           
+                                                                                                                     
+
+/* f. Sprawdzanie poprawności dodawanych danych (np. funkcja sprawdzająca poprawność pesela)  */
+
+                                                                                                                     
+                                                                                                                     
+                                                                                                                     
 
 /* 7. Procedury, funkcje, wyzwalacze tworzące podsumowania  */
 /* a. Zestawienia miesięczne, kwartalne, roczne, w zależności  od różnych parametrów – zapisywane w bazie danych (gotowe do wyświetlania na wykresach)  */
